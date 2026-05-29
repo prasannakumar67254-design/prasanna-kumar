@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class bankaccount
+{
+    private:
+        string accountnumber;
+        double balance;
+
+    public:
+        bankaccount()   // fixed constructor
+        {
+            accountnumber = "12345";
+            balance = 1000;
+        }
+
+        void displayaccountinfo() const
+        {
+            cout << "Account Number: " << accountnumber << endl;
+            cout << "Balance: $" << balance << endl;
+        }
+
+        class auditor
+        {
+            public:
+                void audit(const bankaccount& account)
+                {
+                    cout << "audit report" << endl;
+                    cout << "Account Number: " << account.accountnumber << endl;
+                    cout << "verified balance: $" << account.balance << endl;
+                }
+        };   // missing semicolon fixed
+};
+
+int main()
+{
+    bankaccount account;
+    account.displayaccountinfo();
+
+    bankaccount::auditor auditor;
+    auditor.audit(account);
+
+    return 0;
+}
