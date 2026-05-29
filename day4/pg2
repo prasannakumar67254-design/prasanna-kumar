@@ -1,0 +1,67 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class employee
+{
+    private: 
+    int id;
+    string name;
+    double salary;
+    string department;
+
+    public:
+    
+    employee(int i, string n, double s, string d)
+    {
+        id = i;
+        setName(n);
+        setSalary(s);
+        department = d;
+    }
+
+    int getId() const { return id; }
+
+    string getName() const { return name; }
+
+    double getSalary() const { return salary; }
+
+    string getDepartment() const { return department; }
+
+    void setName(const string& n)
+    {
+        if(n.length() >= 2)
+        {
+            name = n;
+        }
+        else
+        {
+            cout << "Name must contain at least 2 characters" << endl;
+        }
+    }
+
+    void setSalary(double s)
+    {
+        if(s >= 0)
+        {
+            salary = s;
+        }
+        else
+        {
+            cout << "salary cannot be negative" << endl;
+        }
+    }
+};
+
+int main()
+{
+    employee emp(101, "Alice", 50000.0, "HR");
+
+    cout << "ID: " << emp.getId() << endl;
+    cout << "Name: " << emp.getName() << endl;
+    cout << "Salary: " << emp.getSalary() << endl;
+    cout << "Department: " << emp.getDepartment() << endl;
+
+    return 0;
+}
