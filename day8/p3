@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    ifstream file("nonexist.txt");
+    if(file)
+    {
+        cout<<"file not found"<<endl;
+
+    }
+    if(file.is_open())
+    {
+        cout<<"file opened successfully"<<endl;
+    }
+    else
+    {
+        cout<<"file not found"<<endl;
+    }
+}
